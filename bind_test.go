@@ -13,8 +13,8 @@ import (
 type Status string
 
 type queryUsersArgs struct {
-	IDs    []Status `in:"query:ids"`
-	Status *Status  `in:"query:status"`
+	IDs    []Status `pos:"query:ids"`
+	Status *Status  `pos:"query:status"`
 	Age    int      `json:"age"`
 	OK     bool     `json:"ok"`
 }
