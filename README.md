@@ -18,7 +18,7 @@ type Example struct {
 ### Get Started
 
 ```
-go get github.com/momaek/easyreq
+go get github.com/momaek/easybind
 ```
 
 ### Example
