@@ -1,4 +1,4 @@
-module github.com/momaek/easyreq
+module github.com/momaek/easybind
 
 go 1.17
 
