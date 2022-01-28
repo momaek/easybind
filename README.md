@@ -1,4 +1,4 @@
-# easyreq
+# easybind
 Bind req arguments easily in Golang.
 Support Tag `pos`, specified that where we can get this value, only support one
 - path: from url path, don't support nested struct
