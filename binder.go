@@ -1,4 +1,4 @@
-package easyreq
+package easybind
 
 import (
 	"reflect"
