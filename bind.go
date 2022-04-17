@@ -146,7 +146,7 @@ func (e *easyReq) bindField(field reflect.Value, fieldType reflect.StructField, 
 
 	switch loc {
 	case inTagPath:
-		pathVal := getValueFromPath(name, e.pathQueryier)
+		pathVal := getValueFromPath(name, e.pathQueryier...)
 		values = append(values, pathVal)
 	case inTagQuery:
 		values = e.req.URL.Query()[name]
