@@ -32,6 +32,7 @@ func TestBind(t *testing.T) {
 	queries.Add("ids", "3")
 	queries.Add("ids", "10086")
 	queries.Set("status", "active")
+
 	body := ` {
 		"time": "2021-22",
 		"age":  20,
@@ -45,5 +46,21 @@ func TestBind(t *testing.T) {
 	assert.Equal(t, Status("active"), *args.Status)
 	assert.Equal(t, 20, args.Age)
 	assert.Equal(t, true, args.OK)
+	fmt.Printf("===== %#v \n", args)
+}
+
+func TestBindGet(t *testing.T) {
+	queries := url.Values{}
+	queries.Add("ids", "1")
+	queries.Add("ids", "3")
+	queries.Add("ids", "10086")
+	queries.Set("status", "active")
+	req, _ := http.NewRequest(http.MethodGet, fmt.Sprintf("https://hello.world/users?%s", queries.Encode()), nil)
+
+	args := queryUsersArgs{}
+	err := Bind(req, &args)
+	assert.Nil(t, err)
+	assert.Equal(t, 3, len(args.IDs))
+	assert.Equal(t, Status("active"), *args.Status)
 	fmt.Printf("===== %#v \n", args)
 }
